@@ -22,7 +22,17 @@ import FlexBetween from './FlexBetween';
 
 const navItems = [
   {
-    text: 'Whatsapp Status',
+    text: 'Crear Producto',
+    ruta: 'productcreate',
+    icon: <CheckCircleOutlineOutlined />,
+  },
+  {
+    text: 'Productos',
+    ruta: 'products',
+    icon: <CheckCircleOutlineOutlined />,
+  },
+  {
+    text: 'Estado Whatsapp',
     ruta: 'statuswhatsapp',
     icon: <CheckCircleOutlineOutlined />,
   },

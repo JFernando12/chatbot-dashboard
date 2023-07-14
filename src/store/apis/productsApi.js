@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-const authApi = createApi({
-  reducerPath: 'auth',
+const productApi = createApi({
+  reducerPath: 'product',
   baseQuery: fetchBaseQuery({
     baseUrl: process.env.REACT_APP_API_URL,
     credentials: 'include',
@@ -14,6 +14,13 @@ const authApi = createApi({
     },
   }),
   endpoints: (builder) => ({
+    createProduct: builder.mutation({
+      query: (product) => ({
+        url: '/products',
+        method: 'POST',
+        body: product,
+      }),
+    }),
     getProducts: builder.query({
       query: () => ({
         url: '/products',
@@ -35,14 +42,21 @@ const authApi = createApi({
         },
       }),
     }),
+    removeProduct: builder.mutation({
+      query: (id) => ({
+        url: `/products/${id}`,
+        method: 'DELETE',
+      }),
+    }),
   }),
 });
 
 export const {
-  useSigninMutation,
-  useSignupMutation,
-  useSignoutMutation,
-  useCurrentUserQuery,
-} = authApi;
+  useCreateProductMutation,
+  useGetProductsQuery,
+  useGetProductQuery,
+  useUpdateProductMutation,
+  useRemoveProductMutation,
+} = productApi;
 
-export { authApi };
+export { productApi };

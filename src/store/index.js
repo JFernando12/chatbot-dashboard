@@ -12,9 +12,16 @@ import {
   authApi,
   useSigninMutation,
   useSignupMutation,
-  useSignoutMutation,
   useCurrentUserQuery,
 } from './apis/authApi';
+import {
+  productApi,
+  useCreateProductMutation,
+  useGetProductsQuery,
+  useGetProductQuery,
+  useUpdateProductMutation,
+  useRemoveProductMutation,
+} from './apis/productsApi';
 
 const store = configureStore({
   reducer: {
@@ -22,11 +29,13 @@ const store = configureStore({
     auth: authReducer,
     [whatsappApi.reducerPath]: whatsappApi.reducer,
     [authApi.reducerPath]: authApi.reducer,
+    [productApi.reducerPath]: productApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware()
       .concat(whatsappApi.middleware)
-      .concat(authApi.middleware),
+      .concat(authApi.middleware)
+      .concat(productApi.middleware),
 });
 setupListeners(store.dispatch);
 
@@ -40,6 +49,10 @@ export {
   useStatusWhatsappQuery,
   useSigninMutation,
   useSignupMutation,
-  useSignoutMutation,
   useCurrentUserQuery,
+  useCreateProductMutation,
+  useGetProductsQuery,
+  useGetProductQuery,
+  useUpdateProductMutation,
+  useRemoveProductMutation,
 };
