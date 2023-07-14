@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 const whatsappApi = createApi({
   reducerPath: 'whatsapp',
-  baseQuery: fetchBaseQuery({ baseUrl: process.env.REACT_APP_API_URL }),
+  baseQuery: fetchBaseQuery({ baseUrl: process.env.REACT_APP_CHAT_URL }),
   endpoints: (builder) => ({
     startWhatsapp: builder.mutation({
       query: () => ({
