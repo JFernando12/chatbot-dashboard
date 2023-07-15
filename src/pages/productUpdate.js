@@ -10,6 +10,7 @@ const ProductUpdate = () => {
   const theme = useTheme();
   const [errors, setErrors] = useState('');
   const [name, setName] = useState('');
+  const [price, setPrice] = useState('');
   const [description, setDescription] = useState('');
   const [image, setImage] = useState('');
   const [newImage, setNewImage] = useState('');
@@ -25,6 +26,7 @@ const ProductUpdate = () => {
 
   useEffect(() => {
     setName(data?.data.name || '');
+    setPrice(data?.data.price || '');
     setDescription(data?.data.description || '');
     setImage(data?.data.image || '');
   }, [data]);
@@ -40,6 +42,7 @@ const ProductUpdate = () => {
       id: data?.data.id,
       product: {
         name,
+        price,
         description,
       },
     });
@@ -61,7 +64,6 @@ const ProductUpdate = () => {
 
     const formData = new FormData();
     formData.append('image', newImage);
-    formData.append('name', name);
 
     console.log('formData', formData);
 
@@ -99,7 +101,7 @@ const ProductUpdate = () => {
       alignItems="center"
       justifyContent="center"
       gap="30px"
-      p="40px"
+      p="10px"
     >
       <Box
         component="form"
@@ -119,6 +121,15 @@ const ProductUpdate = () => {
             label="Nombre"
             value={name}
             onChange={(e) => setName(e.target.value)}
+            margin="normal"
+            variant="outlined"
+            required
+          />
+          <TextField
+            id="price"
+            label="Precio"
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
             margin="normal"
             variant="outlined"
             required

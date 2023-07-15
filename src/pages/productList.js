@@ -25,6 +25,14 @@ const ProductList = () => {
       sortable: false,
     },
     {
+      field: 'price',
+      headerName: 'Precio',
+      flex: 0.5,
+      align: 'center',
+      headerAlign: 'center',
+      sortable: false,
+    },
+    {
       field: 'description',
       headerName: 'Descripción',
       flex: 1,

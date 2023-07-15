@@ -8,6 +8,7 @@ const ProductCreate = () => {
 
   const [errors, setErrors] = useState('');
   const [name, setName] = useState('');
+  const [price, setPrice] = useState('');
   const [description, setDescription] = useState('');
   const [image, setImage] = useState('');
   const navigate = useNavigate();
@@ -29,6 +30,7 @@ const ProductCreate = () => {
     const formData = new FormData();
     formData.append('image', image);
     formData.append('name', name);
+    formData.append('price', price);
     formData.append('description', description);
 
     const { error } = await createProduct(formData);
@@ -72,6 +74,18 @@ const ProductCreate = () => {
             label="Nombre"
             value={name}
             onChange={(e) => setName(e.target.value)}
+            variant="outlined"
+            sx={{
+              mb: '10px',
+            }}
+            required
+          />
+          <TextField
+            id="price"
+            type="number"
+            label="Precio"
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
             variant="outlined"
             sx={{
               mb: '10px',
