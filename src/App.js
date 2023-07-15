@@ -10,6 +10,7 @@ import StatusWhatsapp from './pages/statusWhatsapp';
 import RequireAuth from './features/auth/RequireAuth';
 import ProductList from './pages/productList';
 import ProductCreate from './pages/productCreate';
+import ProductUpdate from './pages/productUpdate';
 
 function App() {
   const mode = useSelector((state) => state.global.mode);
@@ -38,6 +39,11 @@ function App() {
                   exact
                   path="/productcreate"
                   element={<ProductCreate />}
+                />
+                <Route
+                  exact
+                  path="/productupdate/:id"
+                  element={<ProductUpdate />}
                 />
               </Route>
             </Route>

@@ -15,6 +15,9 @@ const productApi = createApi({
   }),
   endpoints: (builder) => ({
     createProduct: builder.mutation({
+      invalidatesTags: (result, error, product) => {
+        return [{ type: 'Product', id: 'LIST' }];
+      },
       query: (product) => ({
         url: '/products',
         method: 'POST',
@@ -22,30 +25,54 @@ const productApi = createApi({
       }),
     }),
     getProducts: builder.query({
+      providesTags: (result, error) => {
+        const tags = result?.data.map((product) => {
+          return { type: 'Product', id: product.id };
+        });
+        tags.push({ type: 'Product', id: 'LIST' });
+        return tags;
+      },
       query: () => ({
         url: '/products',
         method: 'GET',
       }),
     }),
     getProduct: builder.query({
+      providesTags: (result, error) => {
+        return [{ type: 'Product', id: result?.data?.id }];
+      },
       query: (id) => ({
         url: `/products/${id}`,
         method: 'GET',
       }),
     }),
     updateProduct: builder.mutation({
-      query: ({ id, data }) => ({
+      invalidatesTags: (result, error, { id }) => {
+        return [{ type: 'Product', id }];
+      },
+      query: ({ id, product }) => ({
         url: `/products/${id}`,
         method: 'PUT',
-        body: {
-          ...data,
-        },
+        body: product,
       }),
     }),
     removeProduct: builder.mutation({
+      invalidatesTags: (result, error, id) => {
+        return [{ type: 'Product', id }];
+      },
       query: (id) => ({
         url: `/products/${id}`,
         method: 'DELETE',
+      }),
+    }),
+    updateProductImage: builder.mutation({
+      invalidatesTags: (result, error, { id }) => {
+        return [{ type: 'Product', id }];
+      },
+      query: ({ id, formData }) => ({
+        url: `/products/image/${id}`,
+        method: 'PUT',
+        body: formData,
       }),
     }),
   }),
@@ -57,6 +84,7 @@ export const {
   useGetProductQuery,
   useUpdateProductMutation,
   useRemoveProductMutation,
+  useUpdateProductImageMutation,
 } = productApi;
 
 export { productApi };

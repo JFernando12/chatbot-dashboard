@@ -21,6 +21,7 @@ import {
   useGetProductQuery,
   useUpdateProductMutation,
   useRemoveProductMutation,
+  useUpdateProductImageMutation,
 } from './apis/productsApi';
 
 const store = configureStore({
@@ -55,4 +56,5 @@ export {
   useGetProductQuery,
   useUpdateProductMutation,
   useRemoveProductMutation,
+  useUpdateProductImageMutation,
 };

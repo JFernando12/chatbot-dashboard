@@ -22,13 +22,13 @@ import FlexBetween from './FlexBetween';
 
 const navItems = [
   {
-    text: 'Crear Producto',
-    ruta: 'productcreate',
+    text: 'Productos',
+    ruta: 'products',
     icon: <CheckCircleOutlineOutlined />,
   },
   {
-    text: 'Productos',
-    ruta: 'products',
+    text: 'Crear Producto',
+    ruta: 'productcreate',
     icon: <CheckCircleOutlineOutlined />,
   },
   {

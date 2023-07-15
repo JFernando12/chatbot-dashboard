@@ -53,13 +53,7 @@ const ProductCreate = () => {
   };
 
   return (
-    <Box
-      display="flex"
-      flexDirection="column"
-      alignItems="center"
-      justifyContent="center"
-      height="70vh"
-    >
+    <Box display="flex" justifyContent="center">
       <Box
         component="form"
         onSubmit={handleSubmit}
@@ -67,10 +61,9 @@ const ProductCreate = () => {
         flexDirection="column"
         alignItems="center"
         width="400px"
-        mt="50px"
         border={`1px solid ${theme.palette.primary.main}`}
         borderRadius="10px"
-        p="20px"
+        p="15px"
         boxShadow={theme.shadows[3]}
       >
         <>
@@ -79,8 +72,10 @@ const ProductCreate = () => {
             label="Nombre"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            margin="normal"
             variant="outlined"
+            sx={{
+              mb: '10px',
+            }}
             required
           />
           <TextField
@@ -89,10 +84,9 @@ const ProductCreate = () => {
             multiline
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            margin="normal"
             variant="outlined"
             required
-            rows={15}
+            rows={14}
             sx={{ width: '300px' }}
           />
           <Typography
@@ -100,7 +94,7 @@ const ProductCreate = () => {
             sx={{ color: theme.palette.secondary[200] }}
           >
             Imagen
-          </Typography>{' '}
+          </Typography>
           <Box
             mt="5px"
             mb="10px"

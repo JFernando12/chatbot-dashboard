@@ -44,7 +44,7 @@ const ProductList = () => {
 
         return (
           <a href={imageSrc} target="_blank" rel="noreferrer">
-            IMAGE
+            IMAGEN
           </a>
         );
       },
@@ -59,7 +59,7 @@ const ProductList = () => {
       renderCell: (params) => {
         const handleEdit = () => {
           // Lógica para editar el registro
-          navigate('/attendance/update/' + params.row.id);
+          navigate('/productupdate/' + params.row.id);
         };
 
         const handleDelete = async () => {

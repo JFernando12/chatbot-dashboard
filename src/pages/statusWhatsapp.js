@@ -75,15 +75,15 @@ const StatusWhatsapp = () => {
       >
         <Header title={`Whatsapp ${active ? 'Activo' : 'Inactivo'}`} />
         <Box
-          width="400px"
-          height="400px"
+          width="300px"
+          height="300px"
           display="flex"
           justifyContent="center"
           alignItems="center"
           m="1rem 0 1rem 0"
         >
           {token ? (
-            <QRCode value={token} renderAs="svg" size={400} />
+            <QRCode value={token} renderAs="svg" size={300} />
           ) : (
             <Button
               type="submit"
