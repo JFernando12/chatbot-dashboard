@@ -7,6 +7,7 @@ import {
   useStartWhatsappMutation,
   useStopWhatsappMutation,
   useStatusWhatsappQuery,
+  useFirstMessageMutation,
 } from './apis/whatsappApi';
 import {
   authApi,
@@ -48,6 +49,7 @@ export {
   useStartWhatsappMutation,
   useStopWhatsappMutation,
   useStatusWhatsappQuery,
+  useFirstMessageMutation,
   useSigninMutation,
   useSignupMutation,
   useCurrentUserQuery,

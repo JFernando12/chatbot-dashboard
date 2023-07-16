@@ -36,6 +36,11 @@ const navItems = [
     ruta: 'statuswhatsapp',
     icon: <CheckCircleOutlineOutlined />,
   },
+  {
+    text: 'Primer Mensaje',
+    ruta: 'firstmessage',
+    icon: <CheckCircleOutlineOutlined />,
+  },
 ];
 
 const Sidebar = ({

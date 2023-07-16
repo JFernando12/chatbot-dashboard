@@ -32,6 +32,15 @@ const whatsappApi = createApi({
         method: 'GET',
       }),
     }),
+    firstMessage: builder.mutation({
+      query: (phone) => ({
+        url: '/whatsapp/first-message',
+        method: 'POST',
+        body: {
+          phone,
+        },
+      }),
+    }),
   }),
 });
 
@@ -39,6 +48,7 @@ export const {
   useStartWhatsappMutation,
   useStopWhatsappMutation,
   useStatusWhatsappQuery,
+  useFirstMessageMutation,
 } = whatsappApi;
 
 export { whatsappApi };

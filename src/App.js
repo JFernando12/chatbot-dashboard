@@ -11,6 +11,7 @@ import RequireAuth from './features/auth/RequireAuth';
 import ProductList from './pages/productList';
 import ProductCreate from './pages/productCreate';
 import ProductUpdate from './pages/productUpdate';
+import FirstMessage from './pages/firstMessage';
 
 function App() {
   const mode = useSelector((state) => state.global.mode);
@@ -45,6 +46,7 @@ function App() {
                   path="/productupdate/:id"
                   element={<ProductUpdate />}
                 />
+                <Route exact path="/firstmessage" element={<FirstMessage />} />
               </Route>
             </Route>
           </Routes>
